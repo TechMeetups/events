@@ -1,0 +1,31 @@
+<%= render 'pages/home' unless user_signed_in? %>
+
+<div id="pins" class="transitions-enabled infinite-scroll clearfix">
+  <% @pins.each do |pin| %>
+    <div class="box panel default-panel">
+           
+      <%= link_to image_tag(pin.image.url(:medium)), pin %>
+
+      <div class="panel-body">
+        <p><i>'<%= pin.description %>'</i></p>
+        <p><span class="glyphicon glyphicon-calendar"></span> 
+        <%= pin.date %></p>
+        <p><%= pin.desc %></p>
+        <p><span class="glyphicon glyphicon-upload"></span> 
+        <%= pin.user.name %></p><br> 
+         <% if pin.user == current_user %> 
+            <div class="actions">         
+              <%= link_to edit_pin_path(pin) do %>
+              <span class="glyphicon glyphicon-edit"></span>
+            <% end %>
+            <%= link_to pin, method: :delete, data: { confirm: 'Are you sure?' } do %>
+              <span class="glyphicon glyphicon-trash"></span>
+            <% end %>
+            </div>  
+          <% end %>            
+      </div>    
+    </div>     
+  <% end %>
+</div> 
+
+<%= will_paginate @posts, renderer: BootstrapPagination::Rails %> 

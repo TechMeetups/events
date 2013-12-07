@@ -1,0 +1,29 @@
+<%= link_to 'Back', pins_path %>
+
+<div class="row">
+  <div class="col-md-offset-0 col-md-12">
+    <div class="panel panel-default">
+      <div class="panel-heading center">
+        <%= image_tag @pin.image.url() %>
+      </div>
+      <div class="panel-body">
+        <p><i>'<%= @pin.description %>'</i></p>
+        <p><span class="glyphicon glyphicon-calendar"></span> 
+        <%= @pin.date %></p>
+        <p><%= @pin.desc %></p>
+        <p><span class="glyphicon glyphicon-upload"></span> 
+          <%= @pin.user.name %></p><br>
+        <% if @pin.user == current_user %>
+          <%= link_to edit_pin_path(@pin) do %>
+            <span class="glyphicon glyphicon-edit"></span>
+            Edit
+          <% end %>
+          <%= link_to @pin, method: :delete, data: { confirm: 'Are you sure?' } do %>
+              <span class="glyphicon glyphicon-trash"></span>Delete
+            <% end %>
+        <% end %>
+
+      </div>
+    </div>
+  </div>
+</div>

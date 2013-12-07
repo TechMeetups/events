@@ -1,0 +1,14 @@
+<div class="jumbotron">
+<h1>TechMeetups Events</h1>
+<p>
+	Organising Events across its global communities
+</p>
+
+	<% if !user_signed_in? %> 
+		<p><span class="glyphicon glyphicon-hand-right"></span> Click here to <%= link_to " Login ",new_user_session_path, class: "btn btn-default btn-lg"%>
+			<%= link_to " Sign up ",new_user_registration_path, class: "btn btn-primary btn-lg"%>
+		</p>
+	<% end %> 
+
+</div>
+
