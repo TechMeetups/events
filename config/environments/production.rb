@@ -91,5 +91,5 @@ Pinteresting::Application.configure do
   }
 
   # Set this to actual host on Heroku 
-  config.action_mailer.default_url_options = { :host => 'http://vast-atoll-5397.herokuapp.com/' }
+  config.action_mailer.default_url_options = { :host => 'http://warm-badlands-5329.herokuapp.com/' }
 end
